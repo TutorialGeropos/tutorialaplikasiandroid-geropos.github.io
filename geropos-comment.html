@@ -80,6 +80,11 @@
                     bindObserver();
                 }
 
+                    window.parent.postMessage({
+  sentinel: 'amp',
+  type: 'embed-size',
+  height: document.body.scrollHeight
+}, '*');
 
                 setInterval(checkSizeChange, mutationObserverAvailable ? 5000 : 500);
             })();
