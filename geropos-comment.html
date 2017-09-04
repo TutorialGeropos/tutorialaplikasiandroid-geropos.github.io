@@ -59,7 +59,7 @@
                 var mutationObserverAvailable = typeof window.MutationObserver === 'function';
 
                 function bindObserver() {
-                    var frame = document.getElementsByTagName('iframe')[0];
+                    var frame = document.getElementsByTagName('amp-iframe')[0];
 
 
                     if (frame === null || frame === undefined) {
@@ -81,12 +81,6 @@
                 if (mutationObserverAvailable) {
                     bindObserver();
                 }
-
-                    window.parent.postMessage({
-  sentinel: 'amp',
-  type: 'embed-size',
-  height: document.body.scrollHeight
-}, '*');
 
                 setInterval(checkSizeChange, mutationObserverAvailable ? 5000 : 500);
             })();
